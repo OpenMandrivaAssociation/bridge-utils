@@ -6,15 +6,15 @@
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
+Summary:	Utilities for configuring the linux ethernet bridge
+Group:		Networking/Other
+License:	GPL
+URL:		http://linux-net.osdl.org/index.php/Bridge
 Source0:	http://downloads.sourceforge.net/bridge/%{name}-%{version}.tar.bz2
 Source1:	README.urpmi
 Source2:    bash-completion
-License:	GPL
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Summary:	Utilities for configuring the linux ethernet bridge
-Group:		Networking/Other
-URL:		http://linux-net.osdl.org/index.php/Bridge
-BuildRequires:	kernel-headers autoconf
+BuildRequires:	kernel-headers
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This package contains utilities for configuring the linux ethernet
@@ -54,8 +54,8 @@ autoconf
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%{makeinstall_std}
+rm -rf %{buildroot}
+%makeinstall_std
 install -m 644 %{SOURCE1} README.update.urpmi
 
 # bash completion
@@ -63,19 +63,17 @@ install -m 755 -d %{buildroot}%{_sysconfdir}/bash_completion.d
 install -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/bash_completion.d/bridge-utils
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
 %doc ChangeLog README README.update.urpmi doc/{FAQ,FIREWALL,HOWTO,WISHLIST}
-%doc %{_mandir}/man*/*
+%{_mandir}/man*/*
 %{_sbindir}/*
 %{_sysconfdir}/bash_completion.d/bridge-utils
 
 %files devel
 %defattr(-,root,root)
-%doc %{_mandir}/man*/*
+%{_mandir}/man*/*
 %{_libdir}/*.a
 %{_includedir}/*.h
-
-
