@@ -37,7 +37,7 @@ kernel ethernet bridge.
 
 %build
 autoconf
-%configure
+%configure2_5x
 %make
 
 %install
