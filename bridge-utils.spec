@@ -8,6 +8,7 @@ Version:	%{version}
 Release:	%{release}
 Source0:	http://downloads.sourceforge.net/bridge/%{name}-%{version}.tar.bz2
 Source1:	README.urpmi
+Source2:    bash-completion
 License:	GPL
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Summary:	Utilities for configuring the linux ethernet bridge
@@ -57,6 +58,10 @@ rm -rf $RPM_BUILD_ROOT
 %{makeinstall_std}
 install -m 644 %{SOURCE1} README.update.urpmi
 
+# bash completion
+install -m 755 -d %{buildroot}%{_sysconfdir}/bash_completion.d
+install -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/bash_completion.d/bridge-utils
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -65,6 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc ChangeLog README README.update.urpmi doc/{FAQ,FIREWALL,HOWTO,WISHLIST}
 %doc %{_mandir}/man*/*
 %{_sbindir}/*
+%{_sysconfdir}/bash_completion.d/bridge-utils
 
 %files devel
 %defattr(-,root,root)
