@@ -14,6 +14,7 @@ Source0:	http://downloads.sourceforge.net/bridge/%{name}-%{version}.tar.bz2
 Source1:	README.urpmi
 Source2:    bash-completion
 BuildRequires:	kernel-headers
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This package contains utilities for configuring the linux ethernet
