@@ -1,6 +1,6 @@
 %define	name	bridge-utils
-%define	version	1.2
-%define	rel     4
+%define	version	1.4
+%define	rel     1
 %define	release	%mkrel %{rel}
 
 Name:		%{name}
