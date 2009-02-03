@@ -1,6 +1,6 @@
 %define	name	bridge-utils
 %define	version	1.4
-%define	rel     2
+%define	rel     3
 %define	release	%mkrel %{rel}
 
 Name:		%{name}
@@ -12,7 +12,6 @@ License:	GPL
 URL:		http://linux-net.osdl.org/index.php/Bridge
 Source0:	http://downloads.sourceforge.net/bridge/%{name}-%{version}.tar.bz2
 Source1:	README.urpmi
-Source2:    bash-completion
 BuildRequires:	kernel-headers
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
@@ -45,10 +44,6 @@ rm -rf %{buildroot}
 %makeinstall_std
 install -m 644 %{SOURCE1} README.update.urpmi
 
-# bash completion
-install -m 755 -d %{buildroot}%{_sysconfdir}/bash_completion.d
-install -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/bash_completion.d/bridge-utils
-
 %clean
 rm -rf %{buildroot}
 
@@ -57,7 +52,6 @@ rm -rf %{buildroot}
 %doc ChangeLog README README.update.urpmi doc/{FAQ,FIREWALL,HOWTO,WISHLIST}
 %{_mandir}/man*/*
 %{_sbindir}/*
-%{_sysconfdir}/bash_completion.d/bridge-utils
 
 %files devel
 %defattr(-,root,root)
