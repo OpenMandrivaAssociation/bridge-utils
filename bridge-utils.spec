@@ -11,7 +11,6 @@ Group:		Networking/Other
 License:	GPL
 URL:		http://linux-net.osdl.org/index.php/Bridge
 Source0:	http://downloads.sourceforge.net/bridge/%{name}-%{version}.tar.bz2
-Source1:	README.urpmi
 BuildRequires:	kernel-headers
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
@@ -42,14 +41,13 @@ autoconf
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-install -m 644 %{SOURCE1} README.update.urpmi
 
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc ChangeLog README README.update.urpmi doc/{FAQ,FIREWALL,HOWTO,WISHLIST}
+%doc ChangeLog README doc/{FAQ,FIREWALL,HOWTO,WISHLIST}
 %{_mandir}/man*/*
 %{_sbindir}/*
 
