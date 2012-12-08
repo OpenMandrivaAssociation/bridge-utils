@@ -1,6 +1,6 @@
 %define	name	bridge-utils
-%define	version	1.4
-%define	rel     7
+%define	version	1.5
+%define	rel     2
 %define	release	%mkrel %{rel}
 
 Name:		%{name}
@@ -10,9 +10,8 @@ Summary:	Utilities for configuring the linux ethernet bridge
 Group:		Networking/Other
 License:	GPL
 URL:		http://linux-net.osdl.org/index.php/Bridge
-Source0:	http://downloads.sourceforge.net/bridge/%{name}-%{version}.tar.bz2
+Source0:	http://downloads.sourceforge.net/bridge/%{name}-%{version}.tar.gz
 BuildRequires:	kernel-headers
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This package contains utilities for configuring the linux ethernet
@@ -39,11 +38,7 @@ autoconf
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
-
-%clean
-rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
@@ -53,6 +48,13 @@ rm -rf %{buildroot}
 
 %files devel
 %defattr(-,root,root)
-%{_mandir}/man*/*
-%{_libdir}/*.a
-%{_includedir}/*.h
+
+
+
+
+
+%changelog
+* Sun Jul 31 2011 tv <tv> 1.5-1.mga2
++ Revision: 131051
+- fix file list
+- new release
