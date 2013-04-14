@@ -1,7 +1,7 @@
 %define	name	bridge-utils
 %define	version	1.5
-%define	rel     2
-%define	release	%mkrel %{rel}
+%define	rel     3
+%define	release	%{rel}
 
 Name:		%{name}
 Version:	%{version}
@@ -11,6 +11,7 @@ Group:		Networking/Other
 License:	GPL
 URL:		http://linux-net.osdl.org/index.php/Bridge
 Source0:	http://downloads.sourceforge.net/bridge/%{name}-%{version}.tar.gz
+Patch1:		bridge-utils-1.5-kernel-headers.patch
 BuildRequires:	kernel-headers
 
 %description
@@ -31,6 +32,7 @@ kernel ethernet bridge.
 
 %prep
 %setup -q
+%patch1 -p1
 
 %build
 autoconf
