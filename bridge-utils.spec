@@ -1,12 +1,11 @@
 Summary:	Utilities for configuring the linux ethernet bridge
 Name:		bridge-utils
-Version:	1.5
-Release:	16
+Version:	1.6
+Release:	1
 Group:		Networking/Other
 License:	GPL
 Url:		http://linux-net.osdl.org/index.php/Bridge
-Source0:	http://downloads.sourceforge.net/bridge/%{name}-%{version}.tar.gz
-Patch1:		bridge-utils-1.5-kernel-headers.patch
+Source0:	http://downloads.sourceforge.net/bridge/%{name}-%{version}.tar.xz
 BuildRequires:	kernel-headers
 Obsoletes:	%{name}-devel < 1.5-4
 
@@ -18,19 +17,17 @@ connected to one ethernet device see hosts connected to the other
 ethernet devices directly.
 
 %prep
-%setup -q
-%patch1 -p1
+%autosetup -p1
 
 %build
 autoconf
-%configure2_5x
-%make
+%configure
+%make_build -j1
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc ChangeLog README doc/{FAQ,FIREWALL,HOWTO,WISHLIST}
 %{_mandir}/man*/*
 %{_sbindir}/*
-
