@@ -1,11 +1,11 @@
 Summary:	Utilities for configuring the linux ethernet bridge
 Name:		bridge-utils
-Version:	1.6
+Version:	1.7.1
 Release:	1
 Group:		Networking/Other
 License:	GPL
 Url:		http://linux-net.osdl.org/index.php/Bridge
-Source0:	http://downloads.sourceforge.net/bridge/%{name}-%{version}.tar.xz
+Source0:	http://downloads.sourceforge.net/bridge/%{name}-%{version}.tar.gz
 BuildRequires:	kernel-headers
 Obsoletes:	%{name}-devel < 1.5-4
 
@@ -29,5 +29,5 @@ autoconf
 
 %files
 %doc ChangeLog README doc/{FAQ,FIREWALL,HOWTO,WISHLIST}
-%{_mandir}/man*/*
+%doc %{_mandir}/man*/*
 %{_sbindir}/*
