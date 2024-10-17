@@ -4,7 +4,7 @@ Version:	1.7.1
 Release:	2
 Group:		Networking/Other
 License:	GPL
-Url:		http://linux-net.osdl.org/index.php/Bridge
+Url:		https://linux-net.osdl.org/index.php/Bridge
 Source0:	http://downloads.sourceforge.net/bridge/%{name}-%{version}.tar.gz
 BuildRequires:	kernel-headers
 Obsoletes:	%{name}-devel < 1.5-4
