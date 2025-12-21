@@ -6,6 +6,11 @@ Group:		Networking/Other
 License:	GPL
 Url:		https://linux-net.osdl.org/index.php/Bridge
 Source0:	http://downloads.sourceforge.net/bridge/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	kernel-headers
 Obsoletes:	%{name}-devel < 1.5-4
 
